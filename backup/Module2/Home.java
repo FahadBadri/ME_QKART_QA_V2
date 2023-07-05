@@ -2,13 +2,13 @@ package QKART_SANITY_LOGIN.Module1;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-// import org.openqa.selenium.support.ui.ExpectedConditions;
-// import org.openqa.selenium.support.ui.WebDriverWait;
-//import org.openqa.selenium.remote.internal.WebElementToJsonConverter;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Home {
     RemoteWebDriver driver;
@@ -27,9 +27,11 @@ public class Home {
     public Boolean PerformLogout() throws InterruptedException {
         try {
             // Find and click on the Logout Button
+            // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             WebElement logout_button = driver.findElement(By.className("MuiButton-text"));
             logout_button.click();
 
+            // SLEEP_STMT_10: Wait for Logout to complete
             // Wait for Logout to Complete
             Thread.sleep(3000);
 
@@ -48,6 +50,7 @@ public class Home {
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 03: MILESTONE 1
             // Clear the contents of the search box and Enter the product name in the search
             // box
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             WebElement seachBoxElement = driver.findElement(By.xpath(
                     "//div[@class='MuiFormControl-root MuiTextField-root search-desktop css-i44wyl']//input"));
             seachBoxElement.clear();
@@ -157,6 +160,23 @@ public class Home {
         }
     }
 
+    // public Boolean Verify_CurrentPage_url() {
+    //     Boolean status = false;
+    //     try {
+    //         // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 10: MILESTONE 3
+    //         // Verify that the url of the current tab does not change
+    //         WebElement CurrenPage_Url = driver.get("https://crio-qkart-frontend-qa.vercel.app/");
+    //         if (!CurrenPage_Url.equals("https://crio-qkart-frontend-qa.vercel.app/")) {
+    //             status = true;
+
+    //         }
+    //         return status;
+    //     } catch (Exception e) {
+    //         System.out.println("Exception while clicking on Checkout: " + e.getMessage());
+    //         return status;
+    //     }
+    // }
+
     /*
      * Return Boolean denoting the status of change quantity of product in cart operation
      */
@@ -193,6 +213,7 @@ public class Home {
                         } else if (quantity < Actualqtn) {
                             WebElement Minusbutton = MinusIcons.get(i);
                             Minusbutton.click();
+                            Thread.sleep(1000);
                         } else if (quantity == Actualqtn) {
                             break;
                         }
@@ -229,16 +250,17 @@ public class Home {
                 WebElement actualsElement = actualsElements.get(i);
                 String actualelement = actualsElement.getText();
                 if (expectedCartContents.equals(actualelement)) {
-                      return true;  
+                    return true;
                 }
             }
 
 
-             return true;
+            return true;
 
         } catch (Exception e) {
             System.out.println("Exception while verifying cart contents: " + e.getMessage());
             return false;
         }
     }
+    
 }

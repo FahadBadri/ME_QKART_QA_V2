@@ -1,16 +1,17 @@
 package QKART_SANITY_LOGIN.Module1;
 
-//import java.time.Duration;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
-//import org.openqa.selenium.NoSuchElementException;
-//import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-//import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
 public class Login {
+    private static final Class<? extends Throwable> NoSuchElementException = null;
     RemoteWebDriver driver;
     String url = "https://crio-qkart-frontend-qa.vercel.app/login";
 
@@ -46,9 +47,13 @@ public class Login {
         // Click the login Button
         login_button.click();
 
+        // SLEEP_STMT_13: Wait for Login to Complete
         // Wait for Login action to complete
-        Thread.sleep(5000);
-
+        // Thread.sleep(5000);
+        FluentWait<WebDriver> wait =
+                new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
+                        .pollingEvery(Duration.ofMillis(250)).ignoring(NoSuchElementException.class);
+            wait.until(ExpectedConditions.invisibilityOf(login_button));
         return this.VerifyUserLoggedIn(Username);
     }
 

@@ -3,11 +3,11 @@ package QKART_SANITY_LOGIN.Module1;
 import java.sql.Timestamp;
 
 import org.openqa.selenium.By;
-//import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-//import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Register {
     RemoteWebDriver driver;
@@ -58,14 +58,15 @@ public class Register {
 
         // Find the register now button
         WebElement register_now_button = this.driver.findElement(By.className("button"));
-        
+
         // Click the register now button
         register_now_button.click();
-        Thread.sleep(2000);
 
-        
+
+        // SLEEP_STMT_06: Wait for new user to get created in the backend
+        Thread.sleep(2000);
         this.lastGeneratedUsername = test_data_username;
-        //Thread.sleep(3000);
+
         return this.driver.getCurrentUrl().endsWith("/login");
     }
 }
