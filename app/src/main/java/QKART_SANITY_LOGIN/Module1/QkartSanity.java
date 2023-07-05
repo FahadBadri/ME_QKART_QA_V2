@@ -372,7 +372,6 @@ public class QkartSanity {
         status = homePage.searchForProduct("Tan");
         homePage.addProductToCart("Tan Leatherette Weekender Duffle");
 
-
         // Click on the checkout button
         homePage.clickCheckout();
 
@@ -669,86 +668,7 @@ public class QkartSanity {
         return status;
     }
 
-    // public static Boolean TestCase10(RemoteWebDriver driver, String[] args) throws InterruptedException {
-    //     WebDriverWait wait = new WebDriverWait(driver, 10);
-    //     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    //     String originalHandle = driver.getWindowHandle();
-    //     Set<String> windowHandles = driver.getWindowHandles();
     
-    //     logStatus("Start TestCase", "Test Case 10: Verify Privacy Policy and Terms of Service", "DONE");
-    
-    //     driver.get("https://crio-qkart-frontend-qa.vercel.app/");
-    
-    //     wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div/div[5]/div[2]/p[1]/a"))).click();
-    //     logStatus("Clicked on Privacy Policy", "Clicked on the 'Privacy Policy' page", "PASS");
-    
-    //     String currentUrl = driver.getCurrentUrl();
-    //     if (!currentUrl.equals("https://crio-qkart-frontend-qa.vercel.app/")) {
-    //         logStatus("URL of the current Tab", "URL does not change", "FAIL");
-    //         return false;
-    //     }
-    //     logStatus("URL of the current Tab", "URL does not change", "PASS");
-    
-    //     String newWindowHandle = getNewWindowHandle(driver, originalHandle);
-    //     if (newWindowHandle == null) {
-    //         logStatus("Switch Tab", "Switch to the newly opened tab", "FAIL");
-    //         return false;
-    //     }
-    //     driver.switchTo().window(newWindowHandle);
-    //     logStatus("Switch Tab", "Switch to the newly opened tab", "PASS");
-    
-    //     boolean privacyPolicyContent = driver.getPageSource().contains("privacy-policy");
-    //     logStatus("PrivacyPolicy_Content", "Privacy Policy Content is Present", privacyPolicyContent ? "PASS" : "FAIL");
-    //     Thread.sleep(3000);
-       
-
-    //     driver.switchTo().window(originalHandle);
-    //     logStatus("Switch to Original Tab", "Moved To Parent Tab", "PASS");
-    
-    //     wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div/div[5]/div[2]/p[4]/a"))).click();
-    //     logStatus("Terms of Services", "Clicked on Terms of Service", "PASS");
-    
-    //     currentUrl = driver.getCurrentUrl();
-    //     if (!currentUrl.equals("https://crio-qkart-frontend-qa.vercel.app/")) {
-    //         logStatus("URL of the current Tab", "URL of the Home Page does not change", "FAIL");
-    //         return false;
-    //     }
-    //     logStatus("URL of the current Tab", "URL of the Home Page does not change", "PASS");
-    
-    //     newWindowHandle = getNewWindowHandle(driver, originalHandle);
-    //     if (newWindowHandle == null) {
-    //         logStatus("Switch Tab", "Switch to New Tab", "FAIL");
-    //         return false;
-    //     }
-    //     driver.switchTo().window(newWindowHandle);
-    //     logStatus("Switch Tab", "Switch to New Tab", "PASS");
-    
-    //     boolean aboutUsContent = driver.getPageSource().contains("About us");
-    //     logStatus("Terms of Services", "Contents of About Us Page",  "PASS"   );
-    //     Thread.sleep(3000);
-    //      driver.close();
-    //     // for (String handle : windowHandles) {
-    //     //     if (!handle.equals(originalHandle)) {
-    //     //         driver.switchTo().window(handle).close();
-    //     //     }
-    //     // }
-       
-    //     driver.switchTo().window(originalHandle);
-    
-    //     logStatus("End TestCase", "Test Case 10: Verify Privacy Policy and Terms of Service", "PASS");
-    
-    //     return true;
-    // }
-    
-    // public static String getNewWindowHandle(RemoteWebDriver driver, String originalHandle) {
-    //     for (String handle : driver.getWindowHandles()) {
-    //         if (!handle.equals(originalHandle)) {
-    //             //driver.switchTo().window(handle).close();
-    //             return handle;
-    //         }
-    //     }
-    //     return originalHandle;
-    // }
 
 
     public static Boolean TestCase10(RemoteWebDriver driver, String[] args) throws InterruptedException {
@@ -825,114 +745,6 @@ public class QkartSanity {
     }
     
    
-    
-    
-
-    
-    
-
-    
-        
-           
-    
-
-
-    // public static Boolean TestCase10(RemoteWebDriver driver) throws InterruptedException {
-
-
-       
-    //     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    //     String originalHandle = driver.getWindowHandle();
-    //     Set<String> windowHandles = driver.getWindowHandles();
-
-    //     logStatus("Start TestCase", "Test Case 10: Verify Privacy Policy and Terms of Service",
-    //             "DONE");
-
-    //      WebDriverWait wait = new WebDriverWait(driver, 30, 5000);
-        
-
-    //     Home homePage = new Home(driver); // visiting home page
-    //     homePage.navigateToHome();
-    //     wait.until(ExpectedConditions.presenceOfElementLocated(
-    //             By.xpath(" //*[@id=\"root\"]/div/div/div[5]/div[2]/p[1]/a"))).click();
-    //     // linkButton.click();
-    //     Boolean status = true || false;
-    //     logStatus("Clicked on Privacy Policy", "Clicked on the 'Privacy Policy' page",
-    //             status ? "PASS" : "FAIL");
-
-
-    //     String homePageUrl = driver.getCurrentUrl();
-    //     if (!homePageUrl.equals(driver.getCurrentUrl())) {
-    //         status = false;
-    //     } else {
-    //         status = true;
-    //     }
-    //     logStatus("URL of the current Tab", "URL does not change", status ? "PASS" : "FAIL");
-    //     // Thread.sleep(5000);
-    //     switchToNewTab(driver, originalHandle, windowHandles);
-    //     logStatus("Switch Tab", "Switch to the newly opened tab", status ? "PASS" : "FAIL");
-    //     // Thread.sleep(5000);
-    //     Boolean privacyPolicyContent = driver.getPageSource().contains("Privacy Policy");
-    //     logStatus("PrivacyPolicy_Content", "Privacy Policy Content is Present",
-    //             status ? "PASS" : "FAIL");
-    //     // Thread.sleep(5000);
-    //     driver.switchTo().window(originalHandle);
-    //     logStatus("Switch to Original Tab", "Moved To Parent Tab", status ? "PASS" : "FAIL");
-    //     // Thread.sleep(5000);
-    //     driver.findElement(By.linkText("Terms of Service")).click();
-    //     logStatus("Terms of Services", "Clicked on Terms of Service", status ? "PASS" : "FAIL");
-
-    //     if (!homePageUrl.equals(driver.getCurrentUrl())) {
-    //         status = false;
-    //     } else {
-    //         status = true;
-    //     }
-    //     logStatus("URL of the current Tab", "URL of the Home Page does not change",
-    //             status ? "PASS" : "FAIL");
-    //     // Thread.sleep(5000);
-    //     switchToNewTab(driver, originalHandle, windowHandles);
-      
-    //     logStatus("Switch Tab", "Switch to New Tab", "Done");
-    //     // Thread.sleep(5000);
-    //     boolean aboutUsContent =
-    //             driver.getPageSource().contains(" Disrupting The Way Developers Learn ");
-    //     logStatus("Terms of Services", "Contents of About Us Page", status ? "PASS" : "FAIL");
-    //     logStatus("End TestCase",
-    //             "Test Case 10:Test Case Verify Privacy Policy and Terms of Service",
-    //             status ? "PASS" : "FAIL");
-              
-    //     // WebElement elementt = wait.until(ExpectedConditions.visibilityOfElementLocated(
-    //     //         By.xpath("//*[@id=\"root\"]/div/div/div[5]/div[2]/p[4]/a")));
-       
-    //     // takeScreenshot(driver, "EndTestCase", "TestCase10");
-    //     for (String handle : windowHandles) {
-    //         if (!handle.equals(originalHandle)) {
-    //             driver.switchTo().window(handle);
-    //             driver.close();
-               
-    //         }
-    //     }
-
-    //     driver.switchTo().window(originalHandle);
-    //     //driver.close();
-    //     return status;
-    // }
-
-    // public static void switchToNewTab(RemoteWebDriver driver, String originalHandle,
-    //         Set<String> windowHandles) {
-    //             for (String handle : windowHandles) {
-    //                 if (!handle.equals(originalHandle)) {
-    //                     driver.switchTo().window(handle);
-            
-    //                     // Close the second window
-    //                     driver.close();
-    //                     break;
-    //                 }
-    //             }
-    //     }
-    
-
-
 
     private static void switchToNewTab(RemoteWebDriver driver, String originalHandle,
             Set<String> windowHandles) {}
