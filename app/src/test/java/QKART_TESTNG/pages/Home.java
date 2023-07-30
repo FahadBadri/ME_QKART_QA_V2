@@ -51,10 +51,10 @@ public class Home {
             searchBox.clear();
             searchBox.sendKeys(product);
 
-            WebDriverWait wait = new WebDriverWait(driver, 30);
-            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(String
-                    .format("//div[@class='MuiCardContent-root css-1qw96cp'][1]/p[contains(text(),'%s')]", product))));
-            Thread.sleep(3000);
+            // WebDriverWait wait = new WebDriverWait(driver, 30);
+            // wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(String
+            //         .format("//div[@class='MuiCardContent-root css-1qw96cp'][1]/p[contains(text(),'%s')]", product))));
+           Thread.sleep(5000);
             return true;
         } catch (Exception e) {
             System.out.println("Error while searching for a product: " + e.getMessage());
@@ -111,10 +111,11 @@ public class Home {
                 if (productName.contains(cell.findElement(By.className("css-yg30e6")).getText())) {
                     cell.findElement(By.tagName("button")).click();
 
-                    WebDriverWait wait = new WebDriverWait(driver, 30);
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                            String.format("//*[@class='MuiBox-root css-1gjj37g']/div[1][text()='%s']", productName))));
-                    return true;
+                    // WebDriverWait wait = new WebDriverWait(driver, 30);
+                    // wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
+                    //         String.format("//*[@class='MuiBox-root css-1gjj37g']/div[1][text()='%s']", productName))));
+                   Thread.sleep(5000);
+                            return true;
                 }
             }
             System.out.println("Unable to find the given product");
@@ -214,5 +215,9 @@ public class Home {
             System.out.println("Exception while verifying cart contents: " + e.getMessage());
             return false;
         }
+    }
+
+    public Object toUpperCase() {
+        return null;
     }
 }

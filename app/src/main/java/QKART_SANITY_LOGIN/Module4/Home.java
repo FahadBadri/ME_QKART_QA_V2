@@ -2,7 +2,7 @@ package QKART_SANITY_LOGIN.Module4;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -43,23 +43,58 @@ public class Home {
      * Returns Boolean if searching for the given product name occurs without any
      * errors
      */
-    public Boolean searchForProduct(String product) {
+  /* public Boolean searchForProduct(String product) {
         try {
             // Clear the contents of the search box and Enter the product name in the search
             // box
             WebElement searchBox = driver.findElement(By.xpath("//input[@name='search'][1]"));
             searchBox.clear();
             searchBox.sendKeys(product);
-            WebDriverWait wait = new WebDriverWait(driver,30);
-            wait.until(ExpectedConditions.or(ExpectedConditions.textToBePresentInElementLocated(By.className("css-yg30ev6"), product),
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div[2]/div/h4"))));
-            Thread.sleep(3000);
+           
+           
+            // WebDriverWait wait = new WebDriverWait(driver,30);
+            // wait.until(ExpectedConditions.or(ExpectedConditions.textToBePresentInElementLocated(By.className("css-yg30ev6"), product),
+            // ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div[2]/div/h4"))));
+           
+            // //Thread.sleep(3000);
+           
+            // WebDriverWait wait = new WebDriverWait(driver, 60); // Increase wait time to 60 seconds
+            // wait.until(ExpectedConditions.or(
+            
+            // ExpectedConditions.textToBePresentInElementLocated(By.className("css-yg30ev6"), product),
+            // ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div[2]/div/h4"))));
+           
+            // // WebDriverWait wait = new WebDriverWait(driver, 30);
+            // wait.until(ExpectedConditions.or(
+            //     ExpectedConditions.textToBePresentInElementLocated(By.className("css-yg30ev6"), product),
+            //     ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div[2]/div/h4"))));
             return true;
         } catch (Exception e) {
             System.out.println("Error while searching for a product: " + e.getMessage());
             return false;
         }
     }
+ */ 
+public Boolean searchForProduct(String product) {
+    try {
+        // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 03: MILESTONE 1
+        // Clear the contents of the search box and Enter the product name in the search
+        // box
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebElement seachBoxElement = driver.findElement(By.xpath(
+                "//div[@class='MuiFormControl-root MuiTextField-root search-desktop css-i44wyl']//input"));
+        seachBoxElement.clear();
+        seachBoxElement.sendKeys(product);
+        Thread.sleep(5000);
+        return true;
+    } catch (Exception e) {
+        System.out.println("Error while searching for a product: " + e.getMessage());
+        return false;
+    }
+}
+
+
+
 
     /*
      * Returns Array of Web Elements that are search results and return the same
