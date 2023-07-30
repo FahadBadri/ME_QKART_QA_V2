@@ -327,7 +327,7 @@ public class QKART_Tests {
    @Test(priority = 6,description = "Verify that the contents of the cart can be edited",groups={"Regression_Test"})
    @Parameters({"TC6_ProductNameToSearch1","TC6_ProductNameToSearch2"}) 
    
-   public void testCase06(@Optional("Xtend") String TC6_ProductNameToSearch1, @Optional("Yarine") String TC6_ProductNameToSearch2) throws InterruptedException {
+   public void TestCase06(@Optional("Xtend") String TC6_ProductNameToSearch1, @Optional("Yarine") String TC6_ProductNameToSearch2) throws InterruptedException {
         boolean status;
  
         Home homePage = new Home(driver);
@@ -393,7 +393,7 @@ public class QKART_Tests {
     @Test(priority = 7, description = "Verify that insufficient balance error is thrown when the wallet balance is not enough", groups={"Sanity_test"})
     @Parameters({"TC7_ProductName","TC7_Qty"})
 
-    public void testCase07(@Optional("Stylecon") String TC7_ProductName, @Optional("60") int  TC7_Qty ) throws InterruptedException {
+    public void TestCase07(@Optional("Stylecon") String TC7_ProductName, @Optional("60") int  TC7_Qty ) throws InterruptedException {
         boolean status;
     
         Register registration = new Register(driver);
@@ -544,7 +544,7 @@ public class QKART_Tests {
 
 
      @Test(priority = 9,description = "Verify that privacy policy and about us links are working finey",groups={"Regression_Test"})
-     public void testCase09() throws InterruptedException {
+     public void TestCase09() throws InterruptedException {
     boolean status = false;
 
     Register registration = new Register(driver);
