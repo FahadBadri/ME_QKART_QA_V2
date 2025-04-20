@@ -1,4 +1,4 @@
-package QKART_SANITY_LOGIN.Module1;
+//package QKART_SANITY_LOGIN.Module1;
 
 import java.util.List;
 
@@ -74,6 +74,14 @@ public class Checkout {
      * Return Boolean denoting if the insufficient balance message is displayed
      */
     public Boolean verifyInsufficientBalanceMessage() {
+        try {
+            return false;
+        } catch (Exception e) {
+            System.out.println("Exception while verifying insufficient balance message: " + e.getMessage());
+            return false;
+        }
+    }
+    public Boolean verifyInsufficientBalanceMessage1() {
         try {
             return false;
         } catch (Exception e) {
