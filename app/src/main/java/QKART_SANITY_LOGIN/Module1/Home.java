@@ -52,6 +52,14 @@ public class Home {
             return false;
         }
     }
+    public Boolean searchForProduct1(String product) {
+        try {
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error while searching for a product: " + e.getMessage());
+            return false;
+        }
+    }
 
     /*
      * Returns Array of Web Elements that are search results and return the same
