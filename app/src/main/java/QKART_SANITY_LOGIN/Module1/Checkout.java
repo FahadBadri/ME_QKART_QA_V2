@@ -21,6 +21,11 @@ public class Checkout {
             this.driver.get(this.url);
         }
     }
+    public void navigateToCheckout1() {
+        if (!this.driver.getCurrentUrl().equals(this.url)) {
+            this.driver.get(this.url);
+        }
+    }
 
     /*
      * Return Boolean denoting the status of adding a new address
